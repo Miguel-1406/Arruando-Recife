@@ -2,7 +2,7 @@
 
 > **Projeto desenvolvido para a Amostra Tech Design – CESAR School**
 >
-> *“Arruar: projetar, traçar ou construir ruas e caminhos; passear pelas ruas com ostentação ou, em contextos específicos, arrumar ou reparar falhas.”*
+> *“Arruar: O ato de caminhar pelas ruas sem rumo; perambular, vagar e explorar as vias urbanas.”*
 
 ---
 
@@ -40,12 +40,12 @@ O protótipo combina elementos físicos de prototipagem rápida e componentes de
     * Sensor de Movimento
     * Resistores & Protoboard
     * Fios condutores especiais para os LEDs
+    * Caixa de papelão e Placa de MDF (Estrutura do tabuleiro)
 * **Software:**
     * Arduino IDE
     * Linguagem utilizada para lógica de controle: **Python**
 * **Materiais de Construção Física e Arte:**
     * Impressora 3D (para peças/componentes específicos)
-    * Placa de MDF & Caixa de papelão (Estrutura do tabuleiro)
     * Papéis para elementos Pop-up e Cartas de papel
     * Dados
 
@@ -53,13 +53,12 @@ O protótipo combina elementos físicos de prototipagem rápida e componentes de
 
 ## 🎲 Lógica de Funcionamento e Regras
 
-1.  **Preparação:** A jornada começa com o competidor mais velho e segue no sentido horário. Cada participante recebe uma mochila compacta (representada fisicamente) com quatro espaços de inventário, pré-carregada com itens essenciais como água e comida, além de cinco moedas que indicam suas vidas e sustentam a sobrevivência.
-2.  **O Tabuleiro e o Movimento:** Os jogadores traçam uma rota complexa pelo **Recife Antigo**, lutando para alcançar a **Rosa dos Ventos** antes que seus recursos vitais se esgotem. 
-3.  **Dinâmica de Turnos:** A movimentação no percurso é determinada pelo lançamento de dados, mas a sorte é condicionada pela eletrônica: a luz ativa na casa pisada dita o destino. 
-    * Uma cor específica pode sinalizar uma punição severa ou um bônus.
-4.  **Gerenciamento de Crise:** Ao longo do trajeto, os participantes devem gerenciar cuidadosamente seus suprimentos em um dilema constante entre velocidade e precaução. O Arduino atua como o **núcleo emissor**, onde cada luz acesa dita ações em tempo real para solucionar emergências rapidamente.
-5.  **Interação entre Jogadores:** É possível utilizar comandos de cartas para roubar recursos de oponentes em momentos críticos.
-6.  **Vitória:** A vitória é conquistada coletivamente quando o primeiro jogador chega à Rosa dos Ventos, contanto que o último sobrevivente consiga evitar a eliminação por escassez total de suprimentos.
+1. **Preparação:** A jornada começa com o competidor mais velho e segue no sentido horário. Cada participante recebe uma mochila compacta com quatro espaços de inventário, pré-carregada com itens essenciais como água e comida, além de cinco moedas que indicam suas vidas e sustentam a sobrevivência.
+2. **O Tabuleiro e o Movimento:** Os jogadores perambulam por uma rota complexa e cheia de imprevistos pelo **Recife Antigo**, lutando para alcançar a **Rosa dos Ventos** antes que seus recursos vitais se esgotem.
+3. **Dinâmica de Turnos:** A movimentação no percurso é determinada pelo lançamento de dados, mas a sorte é condicionada pela eletrônica: a luz ativa na casa pisada dita o destino. Uma cor específica pode sinalizar uma punição severa ou um bônus.
+4. **Gerenciamento de Crise:** Ao longo do trajeto, os participantes devem gerenciar cuidadosamente seus suprimentos em um dilema constante entre velocidade e precaução. O Arduino atua como o **núcleo emissor**, onde cada luz acesa dita ações em tempo real para solucionar emergências rapidamente.
+5. **Interação entre Jogadores:** É possível utilizar comandos de cartas para roubar recursos de oponentes em momentos críticos.
+6. **Vitória:** A vitória é conquistada coletivamente quando o primeiro jogador chega à Rosa dos Ventos, contanto que o último sobrevivente consiga evitar a eliminação por escassez total de suprimentos.
 
 ---
 
@@ -89,14 +88,11 @@ Para tornar este projeto realidade, a equipe integrou conhecimentos multidiscipl
 ## 📸 Galeria do Protótipo
 
 ### Conceito Visual e Componentes Físicos
-*(Espaço reservado para as fotos do protótipo e ilustrações)*
+*(Espaço reservado para as fotos do protótipo e ilustrações do grupo)*
 
 | Design da Caixa e Tabuleiro | Cartas de Recursos e Elementos Pop-up |
 | :---: | :---: |
-| <img src="image_720b9e.png" alt="Protótipo Caixa" width="300px"> | <img src="image_720b9e.png" alt="Componentes Pop-up" width="300px"> |
-
-### Personagens e Identidade Visual
-*(Adicione aqui os desenhos e artes dos personagens inspirados no Recife)*
+| <img src="caminho/para/imagem_caixa.png" alt="Protótipo Caixa" width="300px"> | <img src="caminho/para/imagem_popup.png" alt="Componentes Pop-up" width="300px"> |
 
 ---
 
