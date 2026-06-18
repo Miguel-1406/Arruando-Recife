@@ -9,6 +9,11 @@ bool sorteioDisponivel = false;
 unsigned long tempoFimSom = 0; 
 const int tempoLuzSom = 2000; // Tempo que as luzes ficam acesas após o som (2 segundos)
 
+// --- NOVA LOGÍSTICA: FILTRO DE DURAÇÃO DO SOM ---
+unsigned long tempoInicioSomDetectado = 0; // Guarda quando o som começou
+bool somEstavaAlto = false;                // Guarda o estado anterior do som
+const int tempoMinimoSom = 500;            // TEMPO EM MS QUE O SOM DEVE DURAR (500ms = meio segundo)
+
 // --- CONFIGURAÇÃO DE ALTA SENSIBILIDADE PARA VOZ ---
 const int AJUSTE_SENSIBILIDADE = 15; // Deixamos bem baixo (ajuste entre 10 e 25 se necessário)
 const int JANELA_AMOSTRAGEM = 50;    // Tempo em milissegundos para ouvir a voz (50ms)
@@ -54,11 +59,29 @@ void loop() {
   Serial.print(" Limite_Sensibilidade:");
   Serial.println(AJUSTE_SENSIBILIDADE);
 
-  // Se a amplitude da voz for maior que o limite, detecta som
-  bool somDetectado = (amplitudeVoz > AJUSTE_SENSIBILIDADE);
+  // Verifica se o volume atual passou do limite técnico
+  bool volumeAcimaDoLimite = (amplitudeVoz > AJUSTE_SENSIBILIDADE);
+  bool somValidado = false;
 
-  // Se detectar voz, joga o cronômetro para o futuro
-  if (somDetectado) {
+  // --- LÓGICA DE VALIDAÇÃO POR TEMPO ---
+  if (volumeAcimaDoLimite) {
+    if (!somEstavaAlto) {
+      // O som acabou de começar a ficar alto! Registra o milissegundo atual
+      tempoInicioSomDetectado = millis();
+      somEstavaAlto = true;
+    } else {
+      // O som já estava alto na leitura anterior. Verifica há quanto tempo ele está alto:
+      if (millis() - tempoInicioSomDetectado >= tempoMinimoSom) {
+        somValidado = true; // O som durou o tempo necessário! É uma voz/sopro real.
+      }
+    }
+  } else {
+    // Se o volume caiu, reseta o histórico imediatamente
+    somEstavaAlto = false;
+  }
+
+  // Se a voz foi validada por durar o tempo correto, ativa o bloqueio do jogo
+  if (somValidado) {
     tempoFimSom = millis() + tempoLuzSom; 
   }
 
@@ -102,8 +125,6 @@ void loop() {
       }
     }
   }
-  
-  // Removemos o delay daqui para que a amostragem seja o próprio tempo de espera do loop
 }
 
 void definirNovoTempo() {
